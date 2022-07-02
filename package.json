@@ -20,6 +20,14 @@
         "command": "flow-case.transform",
         "title": "Transform case"
       }
+    ],
+    "keybindings": [
+      {
+        "key": "shift+f2",
+        "command": "flow-case.transform",
+        "mac": "shift+f2",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "scripts": {
