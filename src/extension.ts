@@ -17,10 +17,11 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    for (const selection of editor.selections) {
+    let selections = editor.selections;
+    for (const selection of selections) {
       let text = editor.document.getText(selection);
-      let transformed = caseTransormer.transform(text, picked);
-      editor.edit((edit) => {
+      let transformed = caseTransormer.transform(text, picked ?? ``);
+      await editor.edit((edit) => {
         edit.replace(selection, transformed);
       });
     }
