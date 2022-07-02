@@ -9,10 +9,6 @@ export function activate(context: vscode.ExtensionContext) {
     if (editor === undefined) {
       return;
     }
-    let texts: string[] = [];
-    for (const selection of editor.selections) {
-      texts.push(editor.document.getText(selection));
-    }
 
     let picked = await vscode.window.showQuickPick(caseTransormer.cases, {
       canPickMany: false,
@@ -21,10 +17,11 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
 
-    for (const text of texts) {
+    for (const selection of editor.selections) {
+      let text = editor.document.getText(selection);
       let transformed = caseTransormer.transform(text, picked);
       editor.edit((edit) => {
-        edit.replace(editor.selection, transformed);
+        edit.replace(selection, transformed);
       });
     }
   });
