@@ -7,3 +7,9 @@
 ## Features
 
 Extension givse ability to transform case of text is selection.
+
+Press `shift` + `F2` to activate transformation.
+
+## Example
+
+![](example.gif)
