@@ -19,7 +19,9 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     let transformed = caseTransormer.transform(text, picked);
-	
+    editor.edit((edit) => {
+      edit.replace(editor.selection, transformed);
+    });
   });
 
   context.subscriptions.push(cmd);
