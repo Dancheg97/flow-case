@@ -16,6 +16,7 @@ export class CaseTransformer {
   constructor() {}
   public cases = [
     "camel case",
+    "snake case",
     "capital case",
     "constant case",
     "dot case",
@@ -25,7 +26,6 @@ export class CaseTransformer {
     "pascal case",
     "path case",
     "sentence case",
-    "snake case",
   ];
   transform(input: string, caseTo: string): string {
     switch (caseTo) {
