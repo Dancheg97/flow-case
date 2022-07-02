@@ -1,5 +1,7 @@
 {
   "name": "flow-case",
+  "repository": "https://github.com/Dancheg97/flow-case",
+  "publisher": "Dancheg97",
   "displayName": "flow-case",
   "description": "case transformation tool for vscode",
   "version": "0.0.1",
