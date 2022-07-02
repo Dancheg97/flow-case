@@ -1,26 +1,25 @@
 import * as vscode from "vscode";
-import {
-  camelCase,
-  capitalCase,
-  constantCase,
-  dotCase,
-  headerCase,
-  noCase,
-  paramCase,
-  pascalCase,
-  pathCase,
-  sentenceCase,
-  snakeCase,
-} from "change-case";
+import { CaseTransformer } from "./transformer";
 
 export function activate(context: vscode.ExtensionContext) {
-  let cmd = vscode.commands.registerCommand("flow-case.transform", () => {
+  const caseTransormer = new CaseTransformer();
+
+  let cmd = vscode.commands.registerCommand("flow-case.transform", async () => {
     const editor = vscode.window.activeTextEditor;
     if (editor === undefined) {
       return;
     }
     const text = editor.document.getText(editor.selection);
 
+    let picked = await vscode.window.showQuickPick(caseTransormer.cases, {
+      canPickMany: false,
+    });
+    if (picked === undefined) {
+      return;
+    }
+
+    let transformed = caseTransormer.transform(text, picked);
+	
   });
 
   context.subscriptions.push(cmd);
