@@ -15,17 +15,17 @@ import {
 export class CaseTransformer {
   constructor() {}
   public cases = [
-    "camelCase",
-    "capitalCase",
-    "constantCase",
-    "dotCase",
-    "headerCase",
-    "noCase",
-    "paramCase",
-    "pascalCase",
-    "pathCase",
-    "sentenceCase",
-    "snakeCase",
+    "camel_case",
+    "capital_case",
+    "constant_case",
+    "dot_case",
+    "header_case",
+    "no_case",
+    "param_case",
+    "pascal_case",
+    "path_case",
+    "sentence_case",
+    "snake_case",
   ];
   transform(input: string, caseTo: string): string {
     switch (caseTo) {

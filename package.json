@@ -18,7 +18,7 @@
       {
         "category": "Flow-case",
         "command": "flow-case.transform",
-        "title": "Hello World"
+        "title": "Transform case"
       }
     ]
   },
